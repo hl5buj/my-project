@@ -143,11 +143,15 @@ from datetime import timedelta
 # JWT 설정
 with open(os.path.join(BASE_DIR, 'private.pem')) as f:
     PRIVATE_KEY = f.read()
+    
+with open(os.path.join(BASE_DIR, 'public.pem')) as f:
+    PUBLIC_KEY = f.read()
 
 SIMPLE_JWT = {
     'ACCESS_TOKEN_LIFETIME': timedelta(minutes=120),
     'REFRESH_TOKEN_LIFETIME': timedelta(days=1),
     'ALGORITHM': 'RS256',  # RS256 사용
     'SIGNING_KEY': PRIVATE_KEY,  # Private Key로 서명
+    'VERIFYING_KEY': PUBLIC_KEY,  # Public Key로 검증
     'AUTH_HEADER_TYPES': ('Bearer',),
 }
