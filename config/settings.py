@@ -10,6 +10,8 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/5.1/ref/settings/
 """
 
+import os
+from datetime import timedelta
 from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -137,8 +139,6 @@ REST_FRAMEWORK = {
     ),
 }
 
-import os
-from datetime import timedelta
 
 # JWT 설정
 with open(os.path.join(BASE_DIR, 'private.pem')) as f:
